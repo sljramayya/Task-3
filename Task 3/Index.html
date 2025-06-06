@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer - Interactive Learning Hub</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="shooting-star"></div>
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <h1>🚀 Space Explorer</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#weather">Weather</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Explore the Cosmos</h2>
+                <p class="hero-subtitle">Journey through space with interactive learning experiences</p>
+                <button class="cta-button" onclick="scrollToSection('quiz')">Start Your Journey 🌌</button>
+            </div>
+            <div class="hero-visual">
+                <div class="planet planet-1"></div>
+                <div class="planet planet-2"></div>
+                <div class="astronaut">👨‍🚀</div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="quiz-section">
+            <div class="container">
+                <h2 class="section-title">🧠 Space Knowledge Quiz</h2>
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="progress-bar">
+                            <div class="progress" id="progress"></div>
+                        </div>
+                        <div class="score">Score: <span id="score">0</span></div>
+                    </div>
+                    
+                    <div class="quiz-body">
+                        <div class="question-container">
+                            <h3 id="question">Loading question...</h3>
+                            <div class="options" id="options"></div>
+                        </div>
+                        
+                        <div class="quiz-controls">
+                            <button id="nextBtn" class="quiz-btn" onclick="nextQuestion()">Next Question</button>
+                            <button id="restartBtn" class="quiz-btn secondary" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-result" id="quizResult" style="display: none;">
+                        <h3>Quiz Complete! 🎉</h3>
+                        <p id="finalScore"></p>
+                        <div class="achievement" id="achievement"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">🖼️ Cosmic Gallery</h2>
+                <div class="carousel-container">
+                    <div class="carousel" id="carousel">
+                        <div class="carousel-item active">
+                            <div class="space-card">
+                                <div class="card-image">🌍</div>
+                                <h3>Earth</h3>
+                                <p>Our beautiful blue planet, the only known place with life in the universe.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="space-card">
+                                <div class="card-image">🌙</div>
+                                <h3>Moon</h3>
+                                <p>Earth's natural satellite, responsible for tides and lunar cycles.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="space-card">
+                                <div class="card-image">☀️</div>
+                                <h3>Sun</h3>
+                                <p>The star at the center of our solar system, providing energy for life.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="space-card">
+                                <div class="card-image">🪐</div>
+                                <h3>Saturn</h3>
+                                <p>The ringed planet, famous for its beautiful ice and rock rings.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="space-card">
+                                <div class="card-image">🚀</div>
+                                <h3>Spacecraft</h3>
+                                <p>Vehicles designed to explore the vastness of space and beyond.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" onclick="previousSlide()">❮</button>
+                        <button class="carousel-btn next" onclick="nextSlide()">❯</button>
+                    </div>
+                    
+                    <div class="carousel-indicators" id="indicators"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Section -->
+        <section id="weather" class="weather-section">
+            <div class="container">
+                <h2 class="section-title">🌤️ Space Weather Data</h2>
+                <div class="weather-container">
+                    <div class="weather-input">
+                        <input type="text" id="cityInput" placeholder="Enter city name" />
+                        <button onclick="fetchWeather()" class="weather-btn">Get Weather 🔍</button>
+                    </div>
+                    
+                    <div class="weather-display" id="weatherDisplay">
+                        <div class="weather-placeholder">
+                            <div class="weather-icon">🌍</div>
+                            <p>Enter a city name to see weather conditions from our planet!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-facts">
+                        <h3>🌌 Random Space Fact</h3>
+                        <div class="fact-display" id="spaceFact">
+                            <p>Click the button below to discover amazing space facts!</p>
+                        </div>
+                        <button onclick="fetchSpaceFact()" class="fact-btn">Get Space Fact ✨</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Space Explorer. Journey through the cosmos of knowledge! 🌟</p>
+        </div>
+    </footer>
+
+    <script src="js.js"></script>
+</body>
+</html>
